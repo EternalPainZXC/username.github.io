@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заголовок страницы</title>
+</head>
+<body>
+    <h1>Привет, мир!</h1>
+    <p>Это наша первая страница.</p>
+    <div id="captcha"></div>
+<input type="text" id="userInput" placeholder="Введите код">
+<button onclick="checkCaptcha()">Отправить</button>
+
+<script>
+    // Генерация случайного кода
+    let code = Math.random().toString(36).substring(2, 7);
+    document.getElementById('captcha').innerText = code;
+
+    function checkCaptcha() {
+        let input = document.getElementById('userInput').value;
+        if (input === code) {
+            alert('Успешно!');
+        } else {
+            alert('Ошибка! Попробуйте снова.');
+            // Перегенерировать код
+        }
+    }
+</script>
+</body>
+</html>
